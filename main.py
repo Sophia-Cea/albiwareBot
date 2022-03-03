@@ -27,9 +27,9 @@ driver.implicitly_wait(3)
 # TODO:
 # fill out all fields in organization form √
 # fill out all fields in the contact form √
-# make an activity (for both thingies?) 
-# make gui
-# edit all fields 
+# make an activity √
+# make gui 
+# edit all fields √
 # maybe make it go looking for the new thingy and check that its all good?
 # randomize the inputs~
 
@@ -418,6 +418,77 @@ def changeFirstName(newName):
         print()
 
 
+#making an activity
+def clickCreateActivity():
+    try:
+        driver.find_element(By.XPATH, "/html/body/div[2]/div[1]/div[2]/div[2]/div/a[2]").click()
+    except:
+        print("couldnt click create activity")
+        input()
+
+def setOrganizationActivity():
+    try:
+        driver.find_element(By.XPATH, "/html/body/div[40]/div/div[2]/form/div[2]/div[1]/div[1]/span[1]/span/span[1]").click()
+    except:
+        print("couldnt click organization acivity")
+
+    try:
+        driver.find_element(By.XPATH, "/html/body/div[41]/div/div[3]/ul/li[1]").click()
+    except:
+        print("couldnt click little bosses")
+
+def setTypeActivity():
+    try:
+        driver.find_element(By.XPATH, "/html/body/div[40]/div/div[2]/form/div[2]/div[1]/div[2]/span[1]/span/span[1]").click()
+    except:
+        print("couldnt click type activity")
+
+    try:
+        driver.find_element(By.XPATH, "/html/body/div[42]/div/div[3]/ul/li[2]").click()
+    except:
+        print("Couldnt select sent email activity")
+
+def setDateActivity():
+    try:
+        driver.find_element(By.XPATH, "/html/body/div[40]/div/div[2]/form/div[2]/div[1]/div[3]/span[1]/span/span[2]/span[1]/span").click()
+    except:
+        print("couldnt open date menu activity")
+    sleep(.2)
+    try:
+        driver.find_element(By.XPATH, "/html/body/div[43]/div/div/div[2]/div[1]/div/div[2]/table/tbody/tr[3]/td[3]/a").click()
+        # driver.find_element(By.CSS_SELECTOR, "#ca16a75d-3842-4802-845f-f068f998c09a > div.k-calendar-view.k-calendar-monthview > table > tbody > tr:nth-child(3) > td:nth-child(3) > a").click()
+    except:
+        print("couldnt set date activity")
+    sleep(.3)
+    try:
+        driver.find_element(By.XPATH, "/html/body/div[43]/div/div/div[3]/button[2]").click()
+    except:
+        print("couldnt set the date activity")
+
+def setNotesActivity():
+    try:
+        driver.find_element(By.XPATH, "/html/body/div[40]/div/div[2]/form/div[2]/div[2]/div[2]/textarea").send_keys("the sky is blue.")
+    except:
+        print("couldnt write notes activity")
+
+def clickSaveActivity():
+    try:
+        driver.find_element(By.XPATH, "/html/body/div[40]/div/div[2]/form/div[3]/button[2]").click()
+        print("xpath failed")
+    except:
+        try:
+            driver.find_element(By.CSS_SELECTOR, "#Save")
+        except:
+            print("couldnt click save activity")
+
+def makeAnActivity():
+    setOrganizationActivity()
+    setTypeActivity()
+    setDateActivity()
+    setNotesActivity()
+    clickSaveActivity()
+
+
 def main():
     clickLoginButton()
     enterLoginEmail()
@@ -425,6 +496,8 @@ def main():
     clickSubmit()
     clickOnRelationships()
     clickOnOrganizations()
+    clickCreateActivity()
+    makeAnActivity()
     # clickCreateNewTask()
     # fillOutForm()
 
@@ -435,49 +508,11 @@ def main():
     # findMyContact()
     # clickEdit()
     # changeFirstName("Not Sophia")
-    
+
 
 main()
 
 
 
-    # try:
-    #     driver.find_element(By.XPATH, "").send_keys()
-    # except:
-    #     print()
-
-    # try:
-    #     driver.find_element(By.XPATH, "").send_keys()
-    # except:
-    #     print()
-
-    # try:
-    #     driver.find_element(By.XPATH, "").send_keys()
-    # except:
-    #     print()
-
-    # try:
-    #     driver.find_element(By.XPATH, "").send_keys()
-    # except:
-    #     print()
-
-    # try:
-    #     driver.find_element(By.XPATH, "").send_keys()
-    # except:
-    #     print()
-
-    # try:
-    #     driver.find_element(By.XPATH, "").send_keys()
-    # except:
-    #     print()
-
-    # try:
-    #     driver.find_element(By.XPATH, "").send_keys()
-    # except:
-    #     print()
-
-    # try:
-    #     driver.find_element(By.XPATH, "").send_keys()
-    # except:
-    #     print()
+    
 
