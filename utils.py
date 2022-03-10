@@ -1,3 +1,4 @@
+# this file contains all the functions and classes that make graphics rendering easy in main.py
 import pygame
 import sys
 import os
@@ -5,6 +6,7 @@ import tkinter
 
 tkinter.Tk().withdraw()
 pygame.init()
+
 
 def gradient(col1, col2, surface):
     col1 = col1.copy()
@@ -54,13 +56,18 @@ class Colors:
     buttonCol2 = col5.copy()
     accentCol = col2.copy()
 
+class Tests:
+    CreateOrganization = 0
+    CreateContact = 1
+    EditContact = 2
+    CreateActivity = 3
 
 class Surf:
     surface = None
 
 class Fonts:
-    WIDTH = 800
-    HEIGHT = 600
+    WIDTH = 500
+    HEIGHT = 300
     fonts = {
         "title": pygame.font.Font(resource_path("font.ttf"), int(WIDTH/14), bold=False, italic=False),
         "subtitle": pygame.font.Font(resource_path("font.ttf"), int(WIDTH/20), bold=False, italic=False),
@@ -71,10 +78,10 @@ class Fonts:
     def resizeFonts(screen):
         Fonts.WIDTH = screen.get_width()
         Fonts.fonts = {
-            "title": pygame.font.Font(resource_path("font.ttf"), int(Fonts.WIDTH/8), bold=False, italic=False),
-            "subtitle": pygame.font.Font(resource_path("font.ttf"), int(Fonts.WIDTH/14), bold=False, italic=False),
-            "paragraph": pygame.font.Font(resource_path("font.ttf"), int(Fonts.WIDTH/20), bold=False, italic=False),
-            "button": pygame.font.Font(resource_path("font.ttf"), int(Fonts.WIDTH/22), bold=False, italic=False)
+            "title": pygame.font.Font(resource_path("font.ttf"), int(Fonts.WIDTH/14), bold=False, italic=False),
+            "subtitle": pygame.font.Font(resource_path("font.ttf"), int(Fonts.WIDTH/20), bold=False, italic=False),
+            "paragraph": pygame.font.Font(resource_path("font.ttf"), int(Fonts.WIDTH/26), bold=False, italic=False),
+            "button": pygame.font.Font(resource_path("font.ttf"), int(Fonts.WIDTH/28), bold=False, italic=False)
         }
 
 class Text:
@@ -229,4 +236,3 @@ class Screen:
         Screen.screens[Screen.state].renderFunction(screen)
         Screen.screens[Screen.state].updateFunction()
         Screen.screens[Screen.state].inputFunction(events)
-

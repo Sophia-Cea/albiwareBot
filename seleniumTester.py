@@ -1,13 +1,12 @@
+# this file contains all the functions that use selenium
 from selenium import webdriver
 from selenium.webdriver.support.ui import WebDriverWait
 from time import sleep
 from bs4 import BeautifulSoup
-from sqlalchemy import func
 from selenium.webdriver.common.by import By
 from loginData import *
 import time
 from selenium.webdriver.common.keys import Keys
-from selenium.webdriver.chrome.options import Options
 
 # initializes web driver that opens the browser
 driver = webdriver.Chrome("/Users/chiac/Desktop/chromedriver98")
@@ -16,8 +15,10 @@ url = 'https://albiware.com'
 
 # opens the window
 driver.get(url)
+
 # sets the amount of time that the driver should try to do something before giving up and throwing an error. time stays consistent throughout the session.
 driver.implicitly_wait(5)
+errorStack = []
 
 
 # functions for logging in
@@ -171,7 +172,7 @@ def enterSandbox():
     except:
         print("couldnt type in textbox")
 
-# this function consists of all the functions from line 68 to this point to simplify the process of recalling each function in order
+# this function consists of all the functions from 'inputName()' to this point to simplify the process of recalling each function in order
 def fillOutForm():
     inputName()
     clickOpenTypeMenu()
