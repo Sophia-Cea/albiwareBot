@@ -6,6 +6,8 @@ import tkinter
 
 tkinter.Tk().withdraw()
 pygame.init()
+WIDTH = 700
+HEIGHT = 500
 
 
 def gradient(col1, col2, surface):
@@ -61,13 +63,14 @@ class Tests:
     CreateContact = 1
     EditContact = 2
     CreateActivity = 3
+    tests = [0, 1, 2, 3]
 
 class Surf:
     surface = None
 
 class Fonts:
-    WIDTH = 500
-    HEIGHT = 300
+    WIDTH = WIDTH
+    HEIGHT = HEIGHT
     fonts = {
         "title": pygame.font.Font(resource_path("font.ttf"), int(WIDTH/14), bold=False, italic=False),
         "subtitle": pygame.font.Font(resource_path("font.ttf"), int(WIDTH/20), bold=False, italic=False),
@@ -192,7 +195,19 @@ class Button:
         self.resizedSurface = pygame.transform.scale(self.surface, (self.convertedRect.width, self.convertedRect.height))
         self.resizedHoverSurface = pygame.transform.scale(self.hoverSurface, (self.convertedRect.width, self.convertedRect.height))
 
-class Screen:
+
+# class Errors:
+#     errors = []
+#     def __init__(self, category, error, testScreenObject) -> None:
+#         self.category = category
+#         self.error = error
+#         Errors.errors.append(self)
+#         if testScreenObject.textPosition <= 70:
+#             testScreenObject.addError(error)
+
+
+
+'''class Screen:
     screens = []
     state = 0
     idling = False
@@ -236,3 +251,4 @@ class Screen:
         Screen.screens[Screen.state].renderFunction(screen)
         Screen.screens[Screen.state].updateFunction()
         Screen.screens[Screen.state].inputFunction(events)
+'''
