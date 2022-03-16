@@ -1,13 +1,10 @@
 # this file handles the gui
-from utils import *
-from seleniumTester import *
 import sys
 from screens import *
 
-# TODO : test to make sure its all still working
-
 ranTest = True
 
+# logs into the account
 logIn()
 
 running = True
@@ -26,6 +23,6 @@ while running:
             if event.key == pygame.K_RETURN:
                 for error in Errors.errors:
                     print(error.toString())
-    
+    # handles rendering and input for the GUI
     Screen.run(screen, events)
     pygame.display.flip()
